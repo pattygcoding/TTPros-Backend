@@ -1,6 +1,5 @@
 const express = require('express');
 const axios = require('axios');
-const ga = require('../config/ga.json'); 
 
 const router = express.Router();
 
@@ -11,7 +10,7 @@ router.post('/verify-captcha', async (req, res) => {
 		return res.status(400).json({ success: false, message: 'No CAPTCHA token provided' });
 	}
 
-	const sk = config.sk;
+	const sk = process.env.CAPTCHA_SECRET_KEY;
 	const verificationURL = `https://www.google.com/recaptcha/api/siteverify?secret=${sk}&response=${captchaToken}`;
 
 	try {
