@@ -2,6 +2,9 @@
 
 Uses Node.js and Express.js
 
+Run locally:
+```node index.js```
+
 Heroku Sign In:
 ```heroku login```
 
